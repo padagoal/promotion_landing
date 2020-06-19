@@ -1,0 +1,138 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+      <link href="{% static 'style.css' %}" rel="stylesheet">
+    <title>Jose Valenzuela</title>
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+  </head>
+  <body>
+
+
+    <nav class="navbar navbar-light back-mustard">
+      <div class="navbar-brand abs">
+
+          <span>MOVIMIENTO RENOVACIÓN GREMIAL</span>
+
+      </div>
+    </nav>
+
+
+    <div class="container-fluid ">
+
+
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-xs-12" style="padding-top: 1em">
+                <img class="img-fluid" src="{% static 'img/main_proporsal.jpeg' %}" alt="Main" >
+            </div>
+
+            <div class="col-md-6 col-lg-6 col-xs-12" style="padding-top: 1em">
+                <img class="img-fluid" src="{% static 'img/main_proporsal_1.jpeg' %}" alt="Main_1">
+            </div>
+        </div>
+        <div class="row" >
+            <div class="col-md-6 col-lg-6 col-xs-12" style="padding-top: 1em">
+                <img class="img-fluid" src="{% static 'img/main_proporsal_2.jpeg' %}" alt="Main">
+            </div>
+            <div class="col-md-6 col-lg-6 col-xs-12" style="padding-top: 1em">
+                <img class="img-fluid" src="{% static 'img/main_proporsal_3.jpeg' %}" alt="Main">
+            </div>
+        </div>
+        <div class="row" >
+            <div class="col-md-6 col-lg-6 col-xs-12" style="padding-top: 1em">
+
+                 <img class="img-fluid" src="{% static 'img/buscador.png' %}" alt="Main">
+
+
+            </div>
+            <div class="col-md-6 col-lg-6 col-xs-12" style="padding-top: 1em">
+                <!--Buscador -->
+                <div id="buscador">
+                    <div id="formBuscador">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6 col-xs-12">
+                                <div class="jumbotron">
+                          <h5 class="display-5">Consultas</h5>
+
+                            <hr class="my-4">
+                            <p>Buscar por: </p>
+                            <button class="btn btn-info" id="btnCedula" onclick="habilitar(0);" role="button">Cédula</button>
+                            <button class="btn btn-info" id="btnMatricula" onclick="habilitar(1);" role="button" >Matricula</button>
+                            <br>
+                            <br>
+                            <form>
+                              <div class="form-group">
+                                <input type="number" class="form-control" id="InputNumber" placeholder="Nro de Cédula o Matricula">
+                                  <input type="hidden" value="cedula" id="datoFiltro"/>
+                              </div>
+                              <button type="button" class="btn btn-success" onclick="crearReporte()">Buscar</button>
+                            </form>
+                        </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-xs-12">
+                                <div id="buscadorResultado"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function habilitar(opcion) {
+            if(opcion == 0){
+                document.getElementById("btnCedula").className = "btn btn-success";
+                document.getElementById("btnMatricula").className = "btn btn-info";
+                $('#datoFiltro').val('cedula');
+            }else{
+                document.getElementById("btnCedula").className = "btn btn-info";
+                document.getElementById("btnMatricula").className = "btn btn-success";
+                $('#datoFiltro').val('matricula');
+            }
+        }
+
+            function crearReporte() {
+                var query =($('#InputNumber').val());
+                var filtro =( $('#datoFiltro').val());
+                if(query != ""){
+                    $.ajax({
+                   type: 'GET',
+                   url: '{% url "reporteVotante" %}',
+                   data: {
+                     'csrfmiddlewaretoken': '{{ csrf_token }}',
+                       'dato' :query,
+                       'filtro':filtro
+                   },
+                   success: function(data) {
+                      $('#buscadorResultado').html(data);
+                   },
+                   error: function(data) {
+                      console.log(data);
+                   }
+                    });
+                }
+
+
+    }
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+  </body>
+</html>
