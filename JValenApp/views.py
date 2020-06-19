@@ -19,3 +19,17 @@ def reporteVotante(request):
         datoVotante = Personas_votante.objects.get(matricula__exact=numero)
 
     return render(request, "resultado.html", {'datoVotante':datoVotante})
+
+
+def reporteVotanteInterno(request):
+    numero = request.GET.get('dato')
+    filtro = request.GET.get('filtro')
+
+
+    if(filtro == 'cedula'):
+        datoVotante = Personas_votante.objects.get(cedula__exact=numero)
+
+    else:
+        datoVotante = Personas_votante.objects.get(matricula__exact=numero)
+
+    return render(request, "resultadoInterno.html", {'datoVotante':datoVotante})
