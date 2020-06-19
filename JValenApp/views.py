@@ -11,14 +11,17 @@ def reporteVotante(request):
     numero = request.GET.get('dato')
     filtro = request.GET.get('filtro')
 
+    try:
+        if(filtro == 'cedula'):
+            datoVotante = Personas_votante.objects.get(cedula__exact=numero)
 
-    if(filtro == 'cedula'):
-        datoVotante = Personas_votante.objects.get(cedula__exact=numero)
+        else:
+            datoVotante = Personas_votante.objects.get(matricula__exact=numero)
 
-    else:
-        datoVotante = Personas_votante.objects.get(matricula__exact=numero)
+        return render(request, "resultado.html", {'datoVotante':datoVotante})
+    except Exception as e:
 
-    return render(request, "resultado.html", {'datoVotante':datoVotante})
+        return render(request, "resultado.html", {})
 
 
 def reporteVotanteInterno(request):
