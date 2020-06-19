@@ -6,4 +6,4 @@ j_valenzuela_env
 */__pycache__
 jv_db.sqlite3
 */migrations
-static
+./static
