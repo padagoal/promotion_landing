@@ -1,5 +1,4 @@
 Django==2.0.13
-Pillow==7.1.2
 asgiref==3.2.7
 pip==10.0.1
 pytz==2020.1
