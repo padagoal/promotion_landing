@@ -41,7 +41,11 @@
                 UNIVERSIDAD
             </strong>
             <h5>
+                {% if datoVotante.universidad == None %}
+                    S/D
+                    {% else %}
                 {{  datoVotante.universidad }}
+                    {% endif %}
             </h5>
             <strong style="color:#675846">
                 PROMO
