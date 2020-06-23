@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'qhejhwgvha!v)9wiar54(_o4h5d4rhbzhmu)s6a=hj1c8ywahu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['139.162.19.130','josevalenzuela.votame.info','www.josevalenzuela.votame.info']
 
