@@ -25,7 +25,7 @@ SECRET_KEY = 'qhejhwgvha!v)9wiar54(_o4h5d4rhbzhmu)s6a=hj1c8ywahu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['139.162.19.130','josevalenzuela.votame.info','www.josevalenzuela.votame.info']
+ALLOWED_HOSTS = ['139.162.19.130','josevalenzuela.votame.info','www.josevalenzuela.votame.info','127.0.0.1']
 
 
 # Application definition
@@ -84,14 +84,19 @@ WSGI_APPLICATION = 'j_valenzuela.wsgi.application'
 #}
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'j_valenzuela',
+    #     'USER': 'jv_user',
+    #     'PASSWORD': 'jv_password',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432',
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'j_valenzuela',
-        'USER': 'jv_user',
-        'PASSWORD': 'jv_password',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'apps.db'
     }
+ 
 }
 
 
