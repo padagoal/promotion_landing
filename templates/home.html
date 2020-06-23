@@ -73,8 +73,9 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <hr class="d-md-none">
                                         </div>
-                                        <hr class=".d-none .d-sm-block .d-md-none">
+                                        
                                         <div class="col-md-6 col-lg-6 col-xs-12" id="cuadroBusqueda">
                                             <p>Ponemos a tu disposición el padrón habilitado para las elecciones de representantes ante consejo de la magistratura</p>
                                             <span>Buscar por: </span>
@@ -108,7 +109,7 @@
             if(element.tagName == 'BUTTON' && element.id == "repetirBusqueda"){
                 $('#cuadroResultado').hide();
                 $('#cuadroBusqueda').show();
-                document.getElementById("inputNumber").val();
+                $('#inputNumber').val('');
             }
         }
 
