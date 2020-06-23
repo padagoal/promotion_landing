@@ -74,8 +74,9 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <hr class=".d-none .d-sm-block .d-md-none">
                                         <div class="col-md-6 col-lg-6 col-xs-12" id="cuadroBusqueda">
-                                            <p>Ponemos a tu disposición el Padrón Habilitado para las Elecciones de Representantes ante Consejo de la Magistratura</p>
+                                            <p>Ponemos a tu disposición el padrón habilitado para las elecciones de representantes ante consejo de la magistratura</p>
                                             <span>Buscar por: </span>
                                             <input type="checkbox" checked data-toggle="toggle" id="cedulaToggle" data-on="Cédula" data-off="Matricula" data-onstyle="success" data-offstyle="info">
                                             <br>
@@ -104,9 +105,10 @@
         document.addEventListener( "click", someListener );
         function someListener(event){
             var element = event.target;
-            if(element.tagName == 'button' && element.id == "repetirBusqueda"){
+            if(element.tagName == 'BUTTON' && element.id == "repetirBusqueda"){
                 $('#cuadroResultado').hide();
                 $('#cuadroBusqueda').show();
+                document.getElementById("inputNumber").val();
             }
         }
 
