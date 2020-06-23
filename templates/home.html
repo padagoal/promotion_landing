@@ -3,7 +3,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
@@ -101,6 +101,15 @@
         </div>
     </div>
     <script type="text/javascript">
+        document.addEventListener( "click", someListener );
+        function someListener(event){
+            var element = event.target;
+            if(element.tagName == 'button' && element.id == "repetirBusqueda"){
+                $('#cuadroResultado').hide();
+                $('#cuadroBusqueda').show();
+            }
+        }
+
         $(function () {
             $('#cedulaToggle').change(function () {
                 if (document.getElementById("cedulaToggle").checked) {
@@ -108,12 +117,6 @@
                 } else {
                     document.getElementById("inputNumber").placeholder = 'Nro de matricula';
                 }
-            })
-        })
-        $(function () {
-            $('#repetirBusqueda').click(function () {
-                $('#cuadroResultado').hide();
-                $('#cuadroBusqueda').show();
             })
         })
 
