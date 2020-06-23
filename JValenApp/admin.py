@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Personas_voto, Personas_votante
+from .models import Personas_voto, Personas_votante_prod
 # Register your models here.
 
 
@@ -12,4 +12,4 @@ class Persona_VotanteAdmin(admin.ModelAdmin):
 
 
 
-admin.site.register(Personas_votante,Persona_VotanteAdmin)
+admin.site.register(Personas_votante_prod,Persona_VotanteAdmin)
