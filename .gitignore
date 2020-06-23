@@ -7,3 +7,4 @@ j_valenzuela_env
 jv_db.sqlite3
 */migrations
 ./static
+/log
