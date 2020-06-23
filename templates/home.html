@@ -110,7 +110,13 @@
                 }
             })
         })
-        
+        $(function () {
+            $('#repetirBusqueda').change(function () {
+                $('#cuadroResultado').hide();
+                $('#cuadroBusqueda').show();
+            })
+        })
+
         function crearReporte() {
             var query = ($('#inputNumber').val());
             var filtro = '';
