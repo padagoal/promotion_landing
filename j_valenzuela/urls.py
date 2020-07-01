@@ -24,6 +24,7 @@ urlpatterns = [
 
     path(r'admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
 
+    path(r'reporteVotante/', views.reporteVotante,name='reporteVotante'),
     path(r'',views.home,),
 ]
 

@@ -4,7 +4,6 @@ j_valenzuela_env
 */*.pyc
 .DS_Store
 */__pycache__
-jv_db.sqlite3
 */migrations
 ./static
 /log
