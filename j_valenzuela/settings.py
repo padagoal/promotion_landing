@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'JValenApp.apps.JvalenappConfig',
     'admin_honeypot',
+    'import_export',
 ]
 
 MIDDLEWARE = [
@@ -92,11 +93,6 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     }
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': 'apps.db'
-    # }
- 
 }
 
 

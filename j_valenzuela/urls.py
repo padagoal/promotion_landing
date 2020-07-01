@@ -23,14 +23,8 @@ urlpatterns = [
     path('manage/', admin.site.urls), #Admin Real
 
     path(r'admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
-    path(r'panel/', include('admin_honeypot.urls', namespace='admin_honeypot')),
-    path(r'core/', include('admin_honeypot.urls', namespace='admin_honeypot')),
 
     path(r'',views.home,),
-
-    path(r'^reporteVotante/$', views.reporteVotante,name='reporteVotante'),
-
-
 ]
 
 #urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

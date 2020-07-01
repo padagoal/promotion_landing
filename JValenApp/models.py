@@ -115,9 +115,21 @@ class Personas_votante(models.Model):
     edad_2017 = models.CharField(max_length=100, verbose_name='Edad 2017',blank=True,null=True,)
     part_2017 = models.CharField(max_length=100, verbose_name='Partido 2017',blank=True,null=True,)
 
-    telefono = models.CharField(max_length=100, verbose_name='Telefono',blank=True,null=True,)
-    celular = models.CharField(max_length=100, verbose_name='Celular',blank=True,null=True,)
-    direccion = models.CharField(max_length=100, verbose_name='Direccion',blank=True,null=True,)
+    telefono = models.CharField(max_length=100, verbose_name='Osmar Telefono',blank=True,null=True,)
+    direccion = models.CharField(max_length=100, verbose_name='Osmar Direccion',blank=True,null=True,)
+    trabajo = models.CharField(max_length=100, verbose_name='Osmar Trabajo',blank=True,null=True,)
+
+    depurado_direccion = models.CharField(max_length=100, verbose_name='Depurado Direccion',blank=True,null=True,)
+    depurado_tel1 = models.CharField(max_length=100, verbose_name='Depurado Tel1',blank=True,null=True,)
+    depurado_tel2 = models.CharField(max_length=100, verbose_name='Depurado Tel2',blank=True,null=True,)
+    depurado_estado = models.CharField(max_length=100, verbose_name='Depurado Estado',blank=True,null=True,)
+    depurado_fallecido = models.CharField(max_length=100, verbose_name='Depurado Fallecido',blank=True,null=True,)
+    
+    cruce_departamento = models.CharField(max_length=100, verbose_name='Cruce Departamento',blank=True,null=True,)
+    cruce_distrito = models.CharField(max_length=100, verbose_name='Cruce Distrito',blank=True,null=True,)
+    cruce_zona = models.CharField(max_length=100, verbose_name='Cruce Zona',blank=True,null=True,)
+    cruce_voto_consejo = models.CharField(max_length=100, verbose_name='Cruce Voto Consejo',blank=True,null=True,)
+    cruce_afiliacion = models.CharField(max_length=100, verbose_name='Cruce Afiliacion',blank=True,null=True,)
 
     class Meta:
         verbose_name = 'Persona Votante'
