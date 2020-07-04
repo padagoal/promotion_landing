@@ -12,6 +12,8 @@ class PersonaVotanteAdminResource(resources.ModelResource):
     class Meta:
         model   =   Personas_votante
         import_id_fields = ('cedula',)
+        use_bulk = True
+        skip_unchanged = True
         
 class CustomPersonaVotanteAdmin(ImportExportModelAdmin):
     resource_class = PersonaVotanteAdminResource
@@ -37,8 +39,8 @@ class CustomPersonaVotanteAdmin(ImportExportModelAdmin):
             post.setlist(admin.helpers.ACTION_CHECKBOX_NAME,
                         self.model.objects.values_list('cedula', flat=True))
             request.POST = post
-
-        return admin.ModelAdmin.changelist_view(self, request, extra_context)
+                
+        return super().changelist_view(request, extra_context)
 
 
 admin.site.register(Personas_votante,CustomPersonaVotanteAdmin)
